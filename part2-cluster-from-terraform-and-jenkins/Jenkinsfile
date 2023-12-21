@@ -11,6 +11,8 @@ pipeline {
                 script {
                     dir('part2-cluster-from-terraform-and-jenkins/terraform-for-cluster') {
                         sh "terraform init"
+                        sh "terraform validate"
+                        sh "terraform plan"
                         sh "terraform apply -auto-approve"
                     }
                 }
